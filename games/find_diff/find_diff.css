@@ -4,3 +4,22 @@
     height: 60vh;
     background-color: red;
 }
+
+#find_diff_canvas .top_bar {
+    height: 64px;
+}
+
+#find_diff_canvas .bottom_bar {
+    height: 64px;
+}
+
+#find_diff_canvas .game_area img {
+    height: 256px;
+}
+
+
+#find_diff_canvas .game_area {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
