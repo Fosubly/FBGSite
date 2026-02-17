@@ -6,7 +6,24 @@
 }
 
 #find_diff_canvas .top_bar {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     height: 64px;
+}
+
+#find_diff_canvas .top_bar__marker {
+    border: 2px solid black;
+    border-radius: 16px;
+    width: 32px;
+    height: 32px;
+}
+
+#find_diff_canvas .top_bar__marker.active {
+    background-color: green;
+    border: none;
 }
 
 #find_diff_canvas .bottom_bar {
@@ -15,6 +32,7 @@
 
 #find_diff_canvas .game_area img {
     height: 256px;
+    position: relative;
 }
 
 
@@ -22,4 +40,25 @@
     display: flex;
     justify-content: center;
     gap: 48px;
+}
+
+#find_diff_canvas .game_area__left_side {
+    position: relative;
+}
+
+#find_diff_canvas .game_area__right_side {
+    position: relative;
+}
+
+.find_marker {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border: 2px dashed red;
+    border-radius: 20px;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: all ease-in 350ms;
 }
