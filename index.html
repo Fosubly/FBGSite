@@ -10,28 +10,405 @@
 </head>
 
 <body>
-    <div id="find_diff_canvas">
-        <!-- <div class="find_marker"></div> -->
-
-        <div class="top_bar">
-            <!-- <div class="top_bar__marker active"></div> -->
+    <header class="site-header">
+        <div class="site-header__nav container">
+            <div class="nav-header"></div>
         </div>
 
-        <div class="game_area">
-            <div class="game_area__left_side">
-                <img src="./games/find_diff/assets/first/left.png">
-            </div>
-
-            <div class="game_area__right_side">
-                <img src="./games/find_diff/assets/first/right.png">
+        <div class="hero">
+            <div class="hero__content container">
+                <h1 class="hero__title">Лён — белорусское золото</h1>
             </div>
         </div>
+    </header>
 
-        <div class="bottom_bar">
+    <main class="main">
+        <div class="container">
+            <section id="legend" class="section section--intro content-block">
+                <h2 class="section__title">Легенда о льне</h2>
+                <p class="section__text">
+                    Здесь будет короткое вступление — сказка или легенда о том, как появилось «льняное золото».
+                </p>
+            </section>
+
+            <section id="growth" class="section content-block">
+                <h2 class="section__title">Как росло золото</h2>
+                <p class="section__text">
+                    Вместе с ребёнком можно проследить путь льна: от маленького зёрнышка до голубых цветков и
+                    коробочек с семенами.
+                </p>
+
+                <div class="growth-slider" data-growth-slider>
+                    <button class="growth-slider__arrow growth-slider__arrow--prev" type="button"
+                        aria-label="Предыдущий этап" data-growth-prev>
+                        ‹
+                    </button>
+
+                    <div class="growth-slider__frame">
+                        <figure class="growth-slide growth-slide--active">
+                            <img src="assets/growth/seed.jpg" alt="Маленькое семечко льна в ладошке">
+                            <figcaption>Посей семечко льна в землю</figcaption>
+                        </figure>
+
+                        <figure class="growth-slide">
+                            <img src="assets/growth/sprout.jpg" alt="Первые зелёные ростки льна в горшочке">
+                            <figcaption>Появился зелёный росток</figcaption>
+                        </figure>
+
+                        <figure class="growth-slide">
+                            <img src="assets/growth/field.jpg" alt="Золотистое поле льна под солнцем">
+                            <figcaption>Поле стало высоким и золотистым</figcaption>
+                        </figure>
+
+                        <figure class="growth-slide">
+                            <img src="assets/growth/blue-flowers.jpg" alt="Синие цветочки льна крупным планом">
+                            <figcaption>Расцвели синие льняные цветочки</figcaption>
+                        </figure>
+
+                        <figure class="growth-slide">
+                            <img src="assets/growth/seed-pods.jpg" alt="Стебель льна с коробочками семян">
+                            <figcaption>На стебельке выросли коробочки с семенами</figcaption>
+                        </figure>
+                    </div>
+
+                    <button class="growth-slider__arrow growth-slider__arrow--next" type="button"
+                        aria-label="Следующий этап" data-growth-next>
+                        ›
+                    </button>
+                </div>
+
+                <div class="growth-slider__dots" aria-hidden="true">
+                    <button class="growth-slider__dot growth-slider__dot--active" type="button" data-growth-dot="0"></button>
+                    <button class="growth-slider__dot" type="button" data-growth-dot="1"></button>
+                    <button class="growth-slider__dot" type="button" data-growth-dot="2"></button>
+                    <button class="growth-slider__dot" type="button" data-growth-dot="3"></button>
+                    <button class="growth-slider__dot" type="button" data-growth-dot="4"></button>
+                </div>
+            </section>
+
+            <section id="journey" class="section content-block">
+                <h2 class="section__title">Путешествие стебелька</h2>
+                <p class="section__text">
+                    Нажмите на любой шаг, чтобы увидеть крупную картинку и прочитать, что происходит со стебельком льна.
+                </p>
+
+                <div class="journey-steps">
+                    <button class="journey-step" type="button"
+                        data-journey-step
+                        data-journey-title="Теребим"
+                        data-journey-text="Осторожно выдёргиваем спелые стебли льна с корешком — это называется &laquo;теребить лён&raquo;."
+                        data-journey-image="assets/journey/tear.jpg">
+                        <div class="journey-step__image-wrapper">
+                            <img src="assets/journey/tear.jpg" alt="Взрослый и ребёнок выдёргивают стебли льна">
+                        </div>
+                        <span class="journey-step__caption">Теребим</span>
+                    </button>
+
+                    <button class="journey-step" type="button"
+                        data-journey-step
+                        data-journey-title="Расстилаем"
+                        data-journey-text="Стебельки раскладывают на поле или траве, чтобы дождик и росы размягчили волокна."
+                        data-journey-image="assets/journey/spread.jpg">
+                        <div class="journey-step__image-wrapper">
+                            <img src="assets/journey/spread.jpg" alt="Стебли льна лежат ровными рядами на поле">
+                        </div>
+                        <span class="journey-step__caption">Расстилаем</span>
+                    </button>
+
+                    <button class="journey-step" type="button"
+                        data-journey-step
+                        data-journey-title="Трём"
+                        data-journey-text="Высохший лён пропускают через специальную мялку: твёрдая корочка ломается, а волокна остаются."
+                        data-journey-image="assets/journey/crush.jpg">
+                        <div class="journey-step__image-wrapper">
+                            <img src="assets/journey/crush.jpg" alt="Руки взрослого трут стебли льна на мялке">
+                        </div>
+                        <span class="journey-step__caption">Трём</span>
+                    </button>
+
+                    <button class="journey-step" type="button"
+                        data-journey-step
+                        data-journey-title="Чешем"
+                        data-journey-text="Расчёсываем волокна щётками или гребнями — получается мягкая пушистая кудель."
+                        data-journey-image="assets/journey/comb.jpg">
+                        <div class="journey-step__image-wrapper">
+                            <img src="assets/journey/comb.jpg" alt="Пушистая кудель льна на деревянном гребне">
+                        </div>
+                        <span class="journey-step__caption">Чешем</span>
+                    </button>
+
+                    <button class="journey-step" type="button"
+                        data-journey-step
+                        data-journey-title="Прядём"
+                        data-journey-text="Из кудели вытягиваем и скручиваем тонкие волокна — рождается льняная ниточка."
+                        data-journey-image="assets/journey/spin.jpg">
+                        <div class="journey-step__image-wrapper">
+                            <img src="assets/journey/spin.jpg" alt="В руках взрослого появляется льняная ниточка">
+                        </div>
+                        <span class="journey-step__caption">Прядём</span>
+                    </button>
+                </div>
+            </section>
+
+            <section id="products" class="section content-block">
+                <h2 class="section__title">Что умеет лён?</h2>
+                <p class="section__text">
+                    Наведи курсор на предмет на полке и узнай, что можно сделать из льна.
+                </p>
+
+                <div class="products-shelf">
+                    <button class="product-item" type="button">
+                        <div class="product-item__image">
+                            <img src="assets/products/towel.jpg" alt="Льняное полотенце">
+                        </div>
+                        <span class="product-item__label">Полотенце</span>
+                        <span class="product-item__tooltip">Льняное полотенце хорошо впитывает воду и быстро сохнет.</span>
+                    </button>
+
+                    <button class="product-item" type="button">
+                        <div class="product-item__image">
+                            <img src="assets/products/shirt.jpg" alt="Льняная рубашка">
+                        </div>
+                        <span class="product-item__label">Рубашка</span>
+                        <span class="product-item__tooltip">Льняная рубашка дышит и помогает не перегреться летом.</span>
+                    </button>
+
+                    <button class="product-item" type="button">
+                        <div class="product-item__image">
+                            <img src="assets/products/doll.jpg" alt="Кукла-оберег из льна">
+                        </div>
+                        <span class="product-item__label">Кукла-оберег</span>
+                        <span class="product-item__tooltip">Изо льна делают тёплых кукол-оберегов и мягкие игрушки.</span>
+                    </button>
+
+                    <button class="product-item" type="button">
+                        <div class="product-item__image">
+                            <img src="assets/products/bag.jpg" alt="Льняной мешочек для крупы">
+                        </div>
+                        <span class="product-item__label">Мешочек</span>
+                        <span class="product-item__tooltip">В льняные мешочки удобно складывать крупу и сушёные травы.</span>
+                    </button>
+
+                    <button class="product-item" type="button">
+                        <div class="product-item__image">
+                            <img src="assets/products/seeds.jpg" alt="Семена льна">
+                        </div>
+                        <span class="product-item__label">Семена</span>
+                        <span class="product-item__tooltip">Семена льна добавляют в каши и выпечку — это полезная еда.</span>
+                    </button>
+
+                    <button class="product-item" type="button">
+                        <div class="product-item__image">
+                            <img src="assets/products/oil.jpg" alt="Бутылочка льняного масла">
+                        </div>
+                        <span class="product-item__label">Масло</span>
+                        <span class="product-item__tooltip">Из семян получают льняное масло для салатов и здоровья.</span>
+                    </button>
+                </div>
+            </section>
+
+            <section id="play-together" class="section section--games">
+                <div class="content-block">
+                    <h2 class="section__title">Играем вместе</h2>
+                    <p class="section__text">
+                        Интерактивные игры для родителей с детьми. Первая игра — «Найди отличия».
+                    </p>
+                    <div id="find_diff_canvas"></div>
+                </div>
+            </section>
+
+            <section id="workshop" class="section content-block">
+                <h2 class="section__title">Мастерская дома</h2>
+                <p class="section__text">
+                    Простые творческие задания и мастер-классы, которые можно повторить дома вместе с ребёнком.
+                </p>
+            </section>
+
+            <section id="parents-tips" class="section content-block">
+                <h2 class="section__title">Секретики для родителей</h2>
+                <p class="section__text">
+                    Методическая копилка: советы, приёмы и идеи, как говорить с детьми о традициях и льне.
+                </p>
+            </section>
+
+            <section id="gallery" class="section content-block">
+                <h2 class="section__title">Наше поле</h2>
+                <p class="section__text">
+                    Небольшая галерея моментов из жизни нашей группы: как мы сажаем лён, наблюдаем за ростом,
+                    играем и творим вместе.
+                </p>
+
+                <div class="gallery">
+                    <button class="gallery__arrow gallery__arrow--prev" type="button" aria-label="Предыдущее фото"
+                        data-gallery-prev>
+                        ‹
+                    </button>
+
+                    <div class="gallery__track" data-gallery-track>
+                        <figure class="gallery-item">
+                            <img src="assets/gallery/planting-flax.jpg"
+                                alt="Дети сажают семена льна в маленькие горшочки">
+                            <figcaption>Сажаем семена льна в горшочки</figcaption>
+                        </figure>
+
+                        <figure class="gallery-item">
+                            <img src="assets/gallery/observe-stems.jpg"
+                                alt="Дети рассматривают зелёные стебельки льна">
+                            <figcaption>Рассматриваем первые зелёные стебельки</figcaption>
+                        </figure>
+
+                        <figure class="gallery-item">
+                            <img src="assets/gallery/play-with-flax.jpg"
+                                alt="Дети играют с куделью и трогают волокна льна">
+                            <figcaption>Играем с куделью и льняными волокнами</figcaption>
+                        </figure>
+
+                        <figure class="gallery-item">
+                            <img src="assets/gallery/draw-flax.jpg" alt="Дети рисуют голубые цветы льна">
+                            <figcaption>Рисуем голубые цветы и льняные поля</figcaption>
+                        </figure>
+                    </div>
+
+                    <button class="gallery__arrow gallery__arrow--next" type="button" aria-label="Следующее фото"
+                        data-gallery-next>
+                        ›
+                    </button>
+                </div>
+            </section>
+
+            <section id="feedback" class="section section--feedback content-block">
+                <h2 class="section__title">Обратная связь</h2>
+                <p class="section__text">
+                    Здесь позже можно разместить форму обратной связи или контакты для общения с педагогами.
+                </p>
+            </section>
         </div>
+    </main>
 
+    <div class="journey-modal" data-journey-modal hidden>
+        <div class="journey-modal__backdrop" data-journey-close></div>
+        <div class="journey-modal__dialog">
+            <button class="journey-modal__close" type="button" aria-label="Закрыть" data-journey-close>×</button>
+            <img class="journey-modal__image" src="" alt="" data-journey-modal-image>
+            <h3 class="journey-modal__title" data-journey-modal-title></h3>
+            <p class="journey-modal__text" data-journey-modal-text></p>
+        </div>
     </div>
+
+    <script src="./games/find_diff/find_diff.js"></script>
+    <script>
+        (function () {
+            const track = document.querySelector('[data-gallery-track]');
+            const prev = document.querySelector('[data-gallery-prev]');
+            const next = document.querySelector('[data-gallery-next]');
+            if (track && prev && next) {
+                const getStep = () => {
+                    const item = track.querySelector('.gallery-item');
+                    if (!item) return 300;
+                    const itemStyles = getComputedStyle(track);
+                    const gap = parseFloat(itemStyles.columnGap || itemStyles.gap || '14');
+                    return item.getBoundingClientRect().width + gap;
+                };
+
+                prev.addEventListener('click', () => {
+                    track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+                });
+                next.addEventListener('click', () => {
+                    track.scrollBy({ left: getStep(), behavior: 'smooth' });
+                });
+            }
+
+            const slider = document.querySelector('[data-growth-slider]');
+            if (slider) {
+                const slides = Array.from(slider.querySelectorAll('.growth-slide'));
+                const dotsContainer = slider.parentElement.querySelector('.growth-slider__dots');
+                const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('[data-growth-dot]')) : [];
+                const prevGrowth = slider.querySelector('[data-growth-prev]');
+                const nextGrowth = slider.querySelector('[data-growth-next]');
+                let index = 0;
+
+                const setActive = (i) => {
+                    slides.forEach((slide, idx) => {
+                        slide.classList.toggle('growth-slide--active', idx === i);
+                    });
+                    dots.forEach((dot, idx) => {
+                        dot.classList.toggle('growth-slider__dot--active', idx === i);
+                    });
+                };
+
+                const go = (delta) => {
+                    const count = slides.length;
+                    index = (index + delta + count) % count;
+                    setActive(index);
+                };
+
+                if (prevGrowth && nextGrowth && slides.length) {
+                    prevGrowth.addEventListener('click', () => go(-1));
+                    nextGrowth.addEventListener('click', () => go(1));
+                }
+
+                if (dots.length) {
+                    dots.forEach(dot => {
+                        dot.addEventListener('click', () => {
+                            const target = Number(dot.getAttribute('data-growth-dot') || 0);
+                            if (!Number.isNaN(target)) {
+                                index = target;
+                                setActive(index);
+                            }
+                        });
+                    });
+                }
+            }
+
+            const journeySteps = document.querySelectorAll('[data-journey-step]');
+            const journeyModal = document.querySelector('[data-journey-modal]');
+            if (journeySteps.length && journeyModal) {
+                const imgEl = journeyModal.querySelector('[data-journey-modal-image]');
+                const titleEl = journeyModal.querySelector('[data-journey-modal-title]');
+                const textEl = journeyModal.querySelector('[data-journey-modal-text]');
+                const closeEls = journeyModal.querySelectorAll('[data-journey-close]');
+
+                const openModal = (step) => {
+                    const title = step.getAttribute('data-journey-title') || '';
+                    const text = step.getAttribute('data-journey-text') || '';
+                    const image = step.getAttribute('data-journey-image') || '';
+                    if (imgEl && image) {
+                        imgEl.src = image;
+                        imgEl.alt = title || 'Путешествие стебелька';
+                    }
+                    if (titleEl) titleEl.textContent = title;
+                    if (textEl) textEl.innerHTML = text;
+                    journeyModal.removeAttribute('hidden');
+                    document.body.style.overflow = 'hidden';
+                };
+
+                const closeModal = () => {
+                    journeyModal.setAttribute('hidden', '');
+                    document.body.style.overflow = '';
+                };
+
+                journeySteps.forEach(step => {
+                    step.addEventListener('click', () => openModal(step));
+                });
+
+                closeEls.forEach(el => {
+                    el.addEventListener('click', closeModal);
+                });
+
+                journeyModal.addEventListener('click', (e) => {
+                    if (e.target === journeyModal) {
+                        closeModal();
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && !journeyModal.hasAttribute('hidden')) {
+                        closeModal();
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
-<script src="./games/find_diff/find_diff.js"></script>
 
 </html>
