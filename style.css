@@ -73,12 +73,13 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('assets/flux-bg.jpg');
-    background-repeat: repeat;
-    background-size: 900px 400px;
-    /* Размер паттерна */
-    opacity: 0.05;
-    /* ОЧЕНЬ легкая текстура */
+    background-image:
+        url('assets/flux-bg.png'),
+        url('assets/flux-bg.png');
+    background-repeat: repeat, repeat;
+    background-size: 520px 520px, 520px 520px;
+    background-position: 0 0, 260px 260px;
+    opacity: 0.075;
     z-index: -1;
     pointer-events: none;
 }
@@ -130,6 +131,57 @@ body::after {
     background-color: #fff;
     border-radius: 14px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    overflow-x: auto;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #324053;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(230, 214, 191, 0.9);
+    background: rgba(255, 255, 255, 0.95);
+    transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
+}
+
+.nav__link:hover {
+    background: rgba(107, 165, 216, 0.14);
+    border-color: rgba(107, 165, 216, 0.55);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.nav__link--accent {
+    border-color: rgba(193, 34, 42, 0.45);
+    background: rgba(212, 175, 55, 0.18);
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: 92vw;
+    }
+
+    .hero {
+        width: 92vw;
+    }
+
+    .nav {
+        justify-content: flex-start;
+    }
 }
 
 .hero {
@@ -190,8 +242,129 @@ body::after {
     color: #3f4b5a;
 }
 
+/* Легенда о льне */
+.legend-actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.legend-actions__btn {
+    border: none;
+    background: var(--field-green);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 10px 26px rgba(79, 138, 60, 0.22);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.legend-actions__btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 34px rgba(79, 138, 60, 0.28);
+    background: #3f7a33;
+}
+
+.legend-actions__btn--outline {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(107, 165, 216, 0.7);
+    color: #324053;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.legend-actions__btn--outline:hover {
+    background: rgba(107, 165, 216, 0.12);
+}
+
+.legend__story {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(107, 165, 216, 0.55);
+}
+
+.legend-picker {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.legend-picker__label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #324053;
+}
+
+.legend-picker__select {
+    border: 1px solid rgba(230, 214, 191, 0.95);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 9px 12px;
+    color: #324053;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.legend__lead {
+    margin-top: 10px;
+    color: #3f4b5a;
+}
+
+.legend__lead:first-child {
+    margin-top: 0;
+}
+
 .section.section--games .content-block {
     padding-bottom: 24px;
+}
+
+/* Подвижные игры */
+.folk-games {
+    margin-top: 14px;
+    display: grid;
+    gap: 12px;
+}
+
+.folk-game {
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(230, 214, 191, 0.9);
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+
+.folk-game__title {
+    font-size: 18px;
+    color: #324053;
+    margin-bottom: 6px;
+}
+
+.folk-game__text,
+.folk-game__rules {
+    color: #3f4b5a;
+    line-height: 1.55;
+}
+
+.folk-game__rules {
+    margin-top: 8px;
+}
+
+.folk-game__details {
+    margin-top: 8px;
+}
+
+.folk-game__details summary {
+    cursor: pointer;
+    color: #2e5b84;
+    font-weight: 700;
+}
+
+.folk-game__details p {
+    margin-top: 8px;
+    line-height: 1.55;
+    color: #3f4b5a;
 }
 
 /* Дополнительное пространство для подсказок в блоке "Что умеет лён?" */
@@ -488,7 +661,7 @@ body::after {
 /* Полка с продуктами изо льна */
 .products-shelf {
     margin-top: 14px;
-    padding: 14px 16px 10px;
+    padding: 18px 16px 34px;
     border-radius: 16px;
     background:
         linear-gradient(to bottom, rgba(230, 214, 191, 0.9), rgba(214, 195, 166, 0.95));

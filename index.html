@@ -12,7 +12,19 @@
 <body>
     <header class="site-header">
         <div class="site-header__nav container">
-            <div class="nav-header"></div>
+            <div class="nav-header">
+                <nav class="nav" aria-label="Навигация по разделам">
+                    <a class="nav__link" href="#legend">Легенда</a>
+                    <a class="nav__link" href="#growth">Рост</a>
+                    <a class="nav__link" href="#journey">Нить</a>
+                    <a class="nav__link" href="#products">Продукты</a>
+                    <a class="nav__link" href="#play-together">Игры</a>
+                    <a class="nav__link" href="#workshop">Мастерская</a>
+                    <a class="nav__link" href="#parents-tips">Родителям</a>
+                    <a class="nav__link" href="#gallery">Галерея</a>
+                    <a class="nav__link nav__link--accent" href="#feedback">Связь</a>
+                </nav>
+            </div>
         </div>
 
         <div class="hero">
@@ -27,8 +39,35 @@
             <section id="legend" class="section section--intro content-block">
                 <h2 class="section__title">Легенда о льне</h2>
                 <p class="section__text">
-                    Здесь будет короткое вступление — сказка или легенда о том, как появилось «льняное золото».
+                    Короткая сказка о том, как лён пришёл на белорусские поля и стал «льняным золотом».
                 </p>
+
+                <div class="legend-picker">
+                    <label class="legend-picker__label" for="legend-variant">Вариант сказки</label>
+                    <select class="legend-picker__select" id="legend-variant" name="legend-variant">
+                        <option value="wind" selected>Чудо малышок - лён</option>
+                        <option value="grandma">Льняное поле - голубое море</option>
+                    </select>
+                </div>
+
+                <div class="legend-actions">
+                    <button class="legend-actions__btn" type="button" data-legend-listen>
+                        Послушать сказку
+                    </button>
+                    <button class="legend-actions__btn legend-actions__btn--outline" type="button"
+                        data-legend-read>
+                        Прочитаем сказку вместе
+                    </button>
+                </div>
+
+                <audio id="legend-audio" preload="none" src="assets/legend/legend.mp3"></audio>
+
+                <div class="legend__story" data-legend-story hidden>
+                    <p class="legend__lead"></p>
+                    <p class="legend__lead"></p>
+                    <p class="legend__lead"></p>
+                    <p class="legend__lead"></p>
+                </div>
             </section>
 
             <section id="growth" class="section content-block">
@@ -211,8 +250,82 @@
                 <div class="content-block">
                     <h2 class="section__title">Играем вместе</h2>
                     <p class="section__text">
-                        Интерактивные игры для родителей с детьми. Первая игра — «Найди отличия».
+                        Подвижные народные игры и интерактивные задания для родителей с детьми.
                     </p>
+
+                    <div class="folk-games">
+                        <article class="folk-game">
+                            <h3 class="folk-game__title">Белорусская народная игра «Ленок» (Лянок)</h3>
+                            <p class="folk-game__text">
+                                На игровой площадке рисуются кружки-гнезда, которых на два-три меньше, чем игроков.
+                                Все становятся в круг и берутся за руки. Ведущий в кругу делает разные движения, все
+                                повторяют их. По команде «САЖАЙ ЛЕН» игроки занимают гнезда, а кто не займет гнездо,
+                                считается «ПОСАЖЕННЫМ»: его сажают в гнездо до конца игры.
+                            </p>
+                            <p class="folk-game__rules"><strong>Правила:</strong> побеждает тот, кто займет последнее
+                                свободное место.</p>
+                        </article>
+
+                        <article class="folk-game">
+                            <h3 class="folk-game__title">Игра «Лен»</h3>
+                            <p class="folk-game__text">
+                                Дети становятся в круг, ходят кругом и поют. Во время пения дети подражают
+                                означенным действиям.
+                            </p>
+                            <details class="folk-game__details">
+                                <summary>Показать текст игры</summary>
+                                <p>Лен мой зеленой<br>
+                                    При горе при крутой,<br>
+                                    Уж я сеяла, сеяла ленок,<br>
+                                    Уж я, сеяв, приговаривала,<br>
+                                    Чеботами приколачивала.<br>
+                                    Ты удайся, удайся, мой лен,<br>
+                                    Ты удайся, удайся, мой ленок.</p>
+
+                                <p>Лен мой зеленой и т.д.<br>
+                                    Я полола, полола ленок,<br>
+                                    Я половши, приговаривала,<br>
+                                    Чеботами приколачивала и т.д.</p>
+
+                                <p>Лен мой зеленой и т.д.<br>
+                                    Уж я дергала, дергала лен,<br>
+                                    Уж я дергав, приговаривала и т.д.<br>
+                                    Лен мой зеленой и т.д.</p>
+
+                                <p>Уж я стлала, стлала ленок,<br>
+                                    Уж я стлавши, приговаривала и т.д.<br>
+                                    Лен мой зеленой и т.д.<br>
+                                    Я мочила, мочила ленок,<br>
+                                    Я мочивши, приговаривала и т.д.</p>
+
+                                <p>Лен мой зеленой и т.д.<br>
+                                    Я сушила, сушила ленок,<br>
+                                    Я сушивши, приговаривала и т.д.<br>
+                                    Лен мой зеленой и т.д.<br>
+                                    Уж я мяла, я мяла ленок,<br>
+                                    Уж я мявши, приговаривала и т.д.</p>
+
+                                <p>Лен мой зеленой и т.д.<br>
+                                    Я трепала, трепала ленок,<br>
+                                    Я трепавши, приговаривала и т.д.<br>
+                                    Лен мой зеленой и т.д.<br>
+                                    Я чесала, чесала ленок,<br>
+                                    Я чесавши, приговаривала и т.д.</p>
+
+                                <p>Лен мой зеленой и т.д.<br>
+                                    Уж я пряла, пряла ленок,<br>
+                                    Уж я прявши, приговаривала и т.д.<br>
+                                    Лен мой зеленой<br>
+                                    При горе при крутой,<br>
+                                    Уж я ткала, ткала я холст,<br>
+                                    Уж я ткавши, приговаривала,<br>
+                                    Чеботами приколачивала,<br>
+                                    Ты удался, удался, мой лен,<br>
+                                    Ты удался, мой белый ленок!</p>
+                            </details>
+                        </article>
+                    </div>
+
                     <div id="find_diff_canvas"></div>
                 </div>
             </section>
@@ -405,6 +518,131 @@
                     if (e.key === 'Escape' && !journeyModal.hasAttribute('hidden')) {
                         closeModal();
                     }
+                });
+            }
+
+            const legendAudio = document.getElementById('legend-audio');
+            const legendStory = document.querySelector('[data-legend-story]');
+            const legendListen = document.querySelector('[data-legend-listen]');
+            const legendRead = document.querySelector('[data-legend-read]');
+            const legendVariant = document.getElementById('legend-variant');
+
+            if (legendAudio && legendStory && legendListen) {
+                legendListen.addEventListener('click', async () => {
+                    try {
+                        // Если аудио ещё не подгрузилось — браузер догрузит при play().
+                        await legendAudio.play();
+                    } catch (e) {
+                        legendStory.removeAttribute('hidden');
+                    }
+                });
+            }
+
+            if (legendStory && legendRead) {
+                const storyParagraphs = Array.from(legendStory.querySelectorAll('.legend__lead'));
+                let typingTimeoutId = null;
+                const STORIES = {
+                    wind: [
+                        'Чудо малышок - лён. Когда цветёт в июне лён, любой, кто видел это чудо, был бесконечно удивлён, как будто небо голубое вдруг опрокинулось в земное.',
+                        'На тонких стебельках без листьев цветок - четыре лепестка, под ним щетинками листочки опорой служат для цветка. А лён цветёт лишь до полудня, ждёт опылителей своих, потом бутончики закроет, он обойдётся и без них.',
+                        'А вот и осень наступает, лён чистым золотом сияет. Но не цветками славен лён: был в древней Индии внедрён как поставщик сырья для ткани, лён превзошёл земные грани.',
+                        'Жрецы Египта фараоны издали грозные законы, чтоб только им из льна одежду одним по праздникам носить, но даже мумиям сушеным лён долго продолжал служить. Прошли столетья, ткань льняная теперь не очень дорогая, доступной стала для людей, лён - настоящий чародей.'
+                    ],
+                    grandma: [
+                        'Валентина Демешко. «Льняное поле - голубое море». Небо ярко-голубое над роскошною землею, и раздольные поля, льном засеяна земля. Когда поле зацветает, море нам напоминает, летний ветер нежно дышит, стебли льна слегка колышет.',
+                        'Волны, как вода, текут, будто к небесам плывут, к горизонту убегают и друг друга догоняют. Всюду голубой простор, всяк задержит здесь свой взор. Голубое море льна, не видать морского дна. Небо чуду удивилось, будто в поле отразилось. Красота неповторима, небо, поле – все едино!',
+                        'Солнце золотом играет, лен лучами согревает. Небо, поле – все светлеет, голубеет, голубеет. И свечение идет, благодать с собой несет между небом и землею, с голубой льняной волною.',
+                        'Это Божья благодать! Вот бы руки вверх поднять, на простор небес смотреть и над полем полететь. Душу счастьем наполняя, эту прелесть созерцая, благостно на мир глядеть, что-то важное узреть.'
+                    ],
+                    'blue-flower': [
+                        'Вячеслав Кисляков. Льняное поле голубое, морской волной качается, только у нас лён вырастает, Белой Русью славится.',
+                        'Шьются белые рубашки, платье, брюки, скатерти, белорусское богатство, смолоду до старости.',
+                        'За границей лён по вкусу, вещи покупаются, лён родился в Беларуси, красотою славится.',
+                        'С начало поле голубое, потом на фабрику везут, лён богатство дорогое, льняных нарядов люди ждут.'
+                    ]
+                };
+
+                const stopTyping = () => {
+                    if (typingTimeoutId) {
+                        clearTimeout(typingTimeoutId);
+                        typingTimeoutId = null;
+                    }
+                };
+
+                const ensureFullTextStored = () => {
+                    storyParagraphs.forEach(p => {
+                        if (!p.dataset.fullText) p.dataset.fullText = '';
+                    });
+                };
+
+                const setStoryVariant = (key) => {
+                    const parts = STORIES[key] || STORIES.wind;
+                    storyParagraphs.forEach((p, idx) => {
+                        p.dataset.fullText = parts[idx] || '';
+                        p.textContent = '';
+                    });
+                };
+
+                const resetStoryText = () => {
+                    storyParagraphs.forEach(p => {
+                        p.textContent = '';
+                    });
+                };
+
+                const typeStory = () => {
+                    stopTyping();
+                    ensureFullTextStored();
+
+                    let paraIdx = 0;
+                    let charIdx = 0;
+
+                    const typeNext = () => {
+                        const p = storyParagraphs[paraIdx];
+                        if (!p) return;
+
+                        const full = p.dataset.fullText || '';
+                        p.textContent = full.slice(0, charIdx + 1);
+                        charIdx++;
+
+                        if (charIdx >= full.length) {
+                            paraIdx++;
+                            charIdx = 0;
+                            if (paraIdx >= storyParagraphs.length) return;
+                            typingTimeoutId = setTimeout(typeNext, 380);
+                            return;
+                        }
+
+                        typingTimeoutId = setTimeout(typeNext, 22);
+                    };
+
+                    typeNext();
+                };
+
+                // Инициализация выбранного варианта
+                if (legendVariant) {
+                    setStoryVariant(legendVariant.value);
+                    legendVariant.addEventListener('change', () => {
+                        stopTyping();
+                        setStoryVariant(legendVariant.value);
+                        if (!legendStory.hasAttribute('hidden')) {
+                            typeStory();
+                        }
+                    });
+                } else {
+                    setStoryVariant('wind');
+                }
+
+                legendRead.addEventListener('click', () => {
+                    const isHidden = legendStory.hasAttribute('hidden');
+                    if (isHidden) {
+                        legendStory.removeAttribute('hidden');
+                        legendStory.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        typeStory();
+                        return;
+                    }
+
+                    stopTyping();
+                    legendStory.setAttribute('hidden', '');
                 });
             }
         })();
