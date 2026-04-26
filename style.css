@@ -376,15 +376,13 @@ body::after {
 /* Слайдер "Как росло золото" */
 .growth-slider {
     margin-top: 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    position: relative;
 }
 
 .growth-slider__frame {
     position: relative;
     flex: 1;
-    height: 320px;
+    height: 420px;
     overflow: hidden;
     border-radius: 14px;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 241, 234, 0.95));
@@ -398,6 +396,8 @@ body::after {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    padding: 12px 6px;
     opacity: 0;
     transform: translateX(10px);
     transition: opacity 250ms ease, transform 250ms ease;
@@ -409,47 +409,62 @@ body::after {
 }
 
 .growth-slide img {
-    width: 60%;
-    height: 85%;
-    object-fit: cover;
+    width: 100%;
+    height: 84%;
+    object-fit: contain;
     border-radius: 16px;
+    background: rgba(239, 232, 220, 0.55);
 }
 
 .growth-slide figcaption {
-    flex: 1;
-    padding: 8px 12px 10px;
+    flex: 0 0 auto;
+    padding: 6px 10px 8px;
     font-size: 15px;
     color: #384656;
+    text-align: center;
 }
 
 .growth-slider__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
     border: 1px solid rgba(230, 214, 191, 0.9);
     background: rgba(255, 255, 255, 0.95);
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 42px;
     border-radius: 999px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #384656;
+    font-size: 24px;
+    font-weight: 700;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.growth-slider__arrow--prev {
+    left: 2px;
+}
+
+.growth-slider__arrow--next {
+    right: 2px;
 }
 
 .growth-slider__arrow:hover {
     background: rgba(79, 138, 60, 0.15);
-    transform: translateY(-1px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .growth-slider__arrow:active {
-    transform: translateY(0);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
 .growth-slider__dots {
     display: flex;
+    justify-content: center;
     gap: 6px;
     margin-top: 8px;
 }
