@@ -142,7 +142,8 @@ body::after {
     gap: 10px;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 16px;
 }
 
 .nav__link {
