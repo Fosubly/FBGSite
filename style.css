@@ -353,12 +353,24 @@ body::after {
 
 .folk-game__details {
     margin-top: 8px;
+    /* display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap; */
+}
+
+.folk-game__details .wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 64px;
 }
 
 .folk-game__details summary {
     cursor: pointer;
     color: #2e5b84;
     font-weight: 700;
+
 }
 
 .folk-game__details p {
