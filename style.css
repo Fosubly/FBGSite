@@ -865,3 +865,215 @@ body::after {
     border-bottom-color: var(--ornament-red);
 }
 
+/* Раскраски */
+.folk-game--coloring {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Вкладки */
+.coloring-tabs {
+    display: flex;
+    gap: 12px;
+    margin: 16px 0 20px;
+    border-bottom: 2px solid #e0d5c4;
+    padding-bottom: 8px;
+}
+
+.coloring-tab {
+    padding: 8px 20px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #8a7a64;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 20px;
+}
+
+.coloring-tab:hover {
+    color: #324053;
+    background: rgba(107, 165, 216, 0.1);
+}
+
+.coloring-tab--active {
+    color: #6BA5D8;
+    background: rgba(107, 165, 216, 0.15);
+}
+
+/* Галерея раскрасок */
+.coloring-gallery {
+    margin-top: 16px;
+}
+
+.coloring-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.coloring-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(230, 214, 191, 0.5);
+}
+
+.coloring-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.coloring-card__image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #f5f0e8;
+    cursor: pointer;
+}
+
+.coloring-card__actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: #faf8f4;
+    flex-wrap: wrap;
+}
+
+/* Кнопки */
+.coloring-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #fff;
+    border: 1px solid #d4c9b8;
+    color: #324053;
+}
+
+.coloring-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.coloring-btn--view {
+    background: #6BA5D8;
+    border-color: #6BA5D8;
+    color: #fff;
+}
+
+.coloring-btn--download {
+    background: #8a7a64;
+    border-color: #8a7a64;
+    color: #fff;
+}
+
+/* Модальное окно */
+.coloring-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+}
+
+.coloring-modal[hidden] {
+    display: none;
+}
+
+.coloring-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.coloring-modal__dialog {
+    position: relative;
+    z-index: 1;
+    max-width: min(800px, 90vw);
+    max-height: 90vh;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+}
+
+.coloring-modal__image {
+    width: 100%;
+    max-height: 55vh;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f5f0e8;
+}
+
+.coloring-modal__title {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #324053;
+    text-align: center;
+}
+
+.coloring-modal__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+}
+
+.coloring-modal__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.coloring-modal__close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 640px) {
+    .coloring-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px;
+    }
+
+    .coloring-card__image {
+        height: 140px;
+    }
+
+    .coloring-btn {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+    
+    .coloring-tab {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+}
