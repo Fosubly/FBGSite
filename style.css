@@ -1177,11 +1177,11 @@ body::after {
     padding-top: 24px;
 }
 
-/* Видео */
+/* Видео обёртка */
 .video-wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%; /* 16:9 формат */
     height: 0;
     overflow: hidden;
     border-radius: 16px;
@@ -1189,32 +1189,22 @@ body::after {
     background: #000;
 }
 
-.video-wrapper video {
+.video-iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    border: none;
+    border-radius: 16px;
 }
+
 
 .watch-video__caption {
     margin-top: 12px;
     font-size: 14px;
     color: #6a7a8a;
     text-align: center;
-}
-
-/* Genial.ly iframe на всю ширину */
-.genialy-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 - такой же формат как у видео */
-    height: 0;
-    overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    background: #f5f0e8;
 }
 
 
