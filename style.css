@@ -1077,3 +1077,73 @@ body::after {
         font-size: 14px;
     }
 }
+
+/* Секция "О проекте" */
+#creators {
+    margin-top: 28px;
+}
+
+.creators-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.creators-section {
+    border-bottom: 1px dashed rgba(107, 165, 216, 0.25);
+    padding-bottom: 16px;
+}
+
+.creators-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.creators-section__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #324053;
+    margin-bottom: 8px;
+}
+
+.creators-list {
+    margin: 8px 0 0 20px;
+    padding: 0;
+    color: #3f4b5a;
+    line-height: 1.6;
+}
+
+.creators-list li {
+    margin-bottom: 6px;
+}
+
+.creators-list li:last-child {
+    margin-bottom: 0;
+}
+
+.creators-list strong {
+    color: #324053;
+}
+
+.creators-info a {
+    color: #6BA5D8;
+    text-decoration: none;
+    border-bottom: 1px dotted #6BA5D8;
+    transition: color 0.15s ease, border-bottom-color 0.15s ease;
+}
+
+.creators-info a:hover {
+    color: #C1222A;
+    border-bottom-color: #C1222A;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .creators-section__title {
+        font-size: 16px;
+    }
+    
+    .creators-list {
+        margin-left: 16px;
+    }
+}
