@@ -1225,3 +1225,258 @@ body::after {
         padding-bottom: 75%; /* Чуть выше на мобильных для лучшего просмотра */
     }
 }
+
+/* Секция Слушаем */
+.listen-container {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* История и портрет */
+.listen-story {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+    padding: 24px;
+    border: 1px solid rgba(230, 214, 191, 0.7);
+}
+
+.listen-story__hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.listen-story__portrait {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.listen-story__portrait img {
+    width: 220px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 3px solid #fff;
+    background: #f5f0e8;
+}
+
+.listen-story__portrait-caption {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #324053;
+}
+
+.listen-story__portrait-caption span {
+    font-weight: normal;
+    color: #8a7a64;
+}
+
+.listen-story__text {
+    flex: 1;
+}
+
+.listen-story__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #324053;
+    margin-bottom: 12px;
+    border-left: 4px solid #6BA5D8;
+    padding-left: 12px;
+}
+
+.listen-story__subtitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #324053;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #4F8A3C;
+}
+
+.listen-story__text p {
+    color: #3f4b5a;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.listen-story__quote {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: rgba(107, 165, 216, 0.1);
+    border-radius: 16px;
+    font-style: italic;
+    font-size: 16px;
+    color: #2c5a7a;
+    text-align: center;
+    border-left: 3px solid #6BA5D8;
+}
+
+/* Аудиоплеер */
+.listen-player {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+    padding: 24px;
+    border: 1px solid rgba(230, 214, 191, 0.7);
+}
+
+.listen-player__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #324053;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.audio-player {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+}
+
+.audio-player__cover {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(230, 214, 191, 0.5);
+}
+
+.audio-player__cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.audio-player__info {
+    flex: 1;
+}
+
+.audio-player__name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #324053;
+    margin-bottom: 6px;
+}
+
+.audio-player__artist {
+    font-size: 14px;
+    color: #8a7a64;
+    margin-bottom: 16px;
+}
+
+.audio-player__controls {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 12px;
+}
+
+.audio-player__download {
+    margin-top: 8px;
+}
+
+.listen-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: #4F8A3C;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.listen-download-btn:hover {
+    background: #3a6b2c;
+    transform: translateY(-2px);
+}
+
+.listen-player__caption {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #8a7a64;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Текст песни */
+.song-lyrics {
+    margin-top: 20px;
+    background: rgba(245, 241, 234, 0.6);
+    border-radius: 16px;
+    padding: 12px 16px;
+}
+
+.song-lyrics summary {
+    cursor: pointer;
+    color: #6BA5D8;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.song-lyrics__text {
+    margin-top: 16px;
+    padding: 12px;
+    background: #fff;
+    border-radius: 12px;
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #3f4b5a;
+    text-align: center;
+}
+
+.song-lyrics__text p {
+    margin-bottom: 10px;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .listen-story__hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .listen-story__title {
+        text-align: center;
+        border-left: none;
+        border-top: 4px solid #6BA5D8;
+        padding-left: 0;
+        padding-top: 12px;
+    }
+    
+    .listen-story__subtitle {
+        text-align: center;
+    }
+    
+    .listen-story__quote {
+        font-size: 14px;
+    }
+    
+    .audio-player {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .audio-player__controls {
+        max-width: 100%;
+    }
+    
+    .listen-story__portrait img {
+        width: 180px;
+        height: 220px;
+    }
+}
