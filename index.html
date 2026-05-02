@@ -20,7 +20,7 @@
         <a class="nav__link" href="#products">Что умеет лён</a>
         <a class="nav__link" href="#read">Читаем</a>
         <a class="nav__link" href="#play-together">Играем</a>
-        <a class="nav__link" href="#look">Смотрим</a>
+        <a class="nav__link" href="#watch">Смотрим</a>
         <a class="nav__link" href="#listen">Слушаем</a>
         <a class="nav__link" href="#gallery">Галерея</a>
         <a class="nav__link" href="#creators">О нас</a>
@@ -235,6 +235,42 @@
                     </button>
                 </div>
             </section>
+
+          <section id="read" class="section content-block">
+    <h2 class="section__title">Читаем</h2>
+    <p class="section__text">
+        Сказки, рассказы, стихи и пословицы для совместного чтения детей и родителей.
+    </p>
+
+    <!-- Категории -->
+    <div class="read-tabs">
+        <button class="read-tab read-tab--active" data-read-category="fairy-tales">Сказки</button>
+        <button class="read-tab" data-read-category="stories">Рассказы</button>
+        <button class="read-tab" data-read-category="poems">Стихи</button>
+        <button class="read-tab" data-read-category="proverbs">Пословицы</button>
+    </div>
+
+    <!-- Список материалов -->
+    <div class="read-list" data-read-list>
+        <div class="read-loading">Загрузка...</div>
+    </div>
+
+    <!-- Модальное окно для чтения -->
+    <div class="read-modal" data-read-modal hidden>
+        <div class="read-modal__backdrop" data-read-close></div>
+        <div class="read-modal__dialog">
+            <button class="read-modal__close" type="button" aria-label="Закрыть" data-read-close>×</button>
+            <div class="read-modal__content">
+                <h3 class="read-modal__title" data-read-title></h3>
+                <div class="read-modal__meta">
+                    <span class="read-modal__category" data-read-category-badge></span>
+                    <span class="read-modal__author" data-read-author></span>
+                </div>
+                <div class="read-modal__text" data-read-text></div>
+            </div>
+        </div>
+    </div>
+</section>
 
             <section id="play-together" class="section section--games">
     <div class="content-block">
@@ -536,7 +572,7 @@
 
 
     <div class="watch-video">
-    <h3 class="watch__subtitle">📹 Видеоэкскурсия «Как рубашка в поле выросла»</h3>
+    <h3 class="watch__subtitle">Видеоэкскурсия «Как рубашка в поле выросла»</h3>
     <div class="video-wrapper">
         <iframe 
             class="video-iframe"
@@ -1091,6 +1127,132 @@ if (coloringModal) {
         }
     });
 }
+// ========== СЕКЦИЯ ЧИТАЕМ ==========
+const readContainer = document.querySelector('[data-read-list]');
+const readModal = document.querySelector('[data-read-modal]');
+const readModalTitle = document.querySelector('[data-read-title]');
+const readModalCategory = document.querySelector('[data-read-category-badge]');
+const readModalAuthor = document.querySelector('[data-read-author]');
+const readModalText = document.querySelector('[data-read-text]');
+const readCloseBtns = document.querySelectorAll('[data-read-close]');
+
+let readingsData = null;
+let currentCategory = 'fairy-tales';
+
+const categoryNames = {
+    'fairy-tales': 'Сказка',
+    'stories': 'Рассказ',
+    'poems': 'Стихотворение',
+    'proverbs': 'Пословицы'
+};
+
+async function loadReadings() {
+    if (!readContainer) return;
+    
+    try {
+        const response = await fetch('data/readings.json');
+        if (!response.ok) throw new Error('Не удалось загрузить тексты');
+        readingsData = await response.json();
+        renderReadList(currentCategory);
+    } catch (error) {
+        console.error('Ошибка загрузки:', error);
+        readContainer.innerHTML = '<div class="read-loading">⚠️ Не удалось загрузить тексты. Проверьте файл data/readings.json</div>';
+    }
+}
+
+function renderReadList(category) {
+    if (!readContainer || !readingsData) return;
+    
+    const items = readingsData[category];
+    if (!items || items.length === 0) {
+        readContainer.innerHTML = '<div class="read-loading">📭 В этой категории пока нет материалов</div>';
+        return;
+    }
+    
+    const categoryName = categoryNames[category] || '';
+    
+    readContainer.innerHTML = items.map(item => `
+        <div class="read-item" data-read-id="${item.id}" data-read-category="${category}" data-read-title="${escapeHtml(item.title)}" data-read-author="${escapeHtml(item.author)}" data-read-full="${escapeHtml(item.full)}">
+            <div class="read-item__title">
+                ${escapeHtml(item.title)}
+                <span class="read-item__category">${categoryName}</span>
+            </div>
+            <div class="read-item__short">${escapeHtml(item.short)}</div>
+            ${item.author ? `<div class="read-item__author">${escapeHtml(item.author)}</div>` : ''}
+        </div>
+    `).join('');
+    
+    document.querySelectorAll('.read-item').forEach(card => {
+        card.addEventListener('click', () => {
+            const title = card.getAttribute('data-read-title');
+            const category = card.getAttribute('data-read-category');
+            const author = card.getAttribute('data-read-author');
+            const fullText = card.getAttribute('data-read-full');
+            openReadModal(title, category, author, fullText);
+        });
+    });
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function openReadModal(title, category, author, fullText) {
+    if (!readModal || !readModalTitle || !readModalCategory || !readModalText) return;
+    
+    readModalTitle.textContent = title || '';
+    readModalCategory.textContent = categoryNames[category] || category || '';
+    readModalAuthor.textContent = author && author !== 'null' ? author : 'Народное творчество';
+    readModalText.innerHTML = fullText || '';
+    readModal.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeReadModal() {
+    if (!readModal) return;
+    readModal.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-read-category]').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const category = tab.getAttribute('data-read-category');
+        if (!category) return;
+        
+        document.querySelectorAll('[data-read-category]').forEach(t => {
+            t.classList.remove('read-tab--active');
+        });
+        tab.classList.add('read-tab--active');
+        
+        currentCategory = category;
+        renderReadList(currentCategory);
+    });
+});
+
+readCloseBtns.forEach(btn => {
+    btn.addEventListener('click', closeReadModal);
+});
+
+if (readModal) {
+    readModal.addEventListener('click', (e) => {
+        if (e.target === readModal) closeReadModal();
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && readModal && !readModal.hasAttribute('hidden')) {
+        closeReadModal();
+    }
+});
+
+loadReadings();
+
                })();
     </script>
     </body>
