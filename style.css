@@ -207,15 +207,32 @@ body::after {
     text-align: center;
 }
 
+.hero__subtitle-top {
+    font-size: 36px;
+    font-weight: 700;
+    color: #D4AF37;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
 .hero__title {
-    font-size: clamp(34px, 4.4vw, 64px);
+    font-size: clamp(40px, 5vw, 72px);
     font-weight: 800;
     letter-spacing: 0.02em;
     color: #d4af37;
-    text-shadow:
-        0 2px 14px rgba(0, 0, 0, 0.55),
-        0 1px 0 rgba(255, 255, 255, 0.15);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255, 255, 255, 0.15);
     line-height: 1.08;
+    margin-bottom: 20px;
+}
+
+.hero__subtitle-bottom {
+    font-size: 28px;
+    font-weight: 700;
+    color: #D4AF37;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
 }
 
 .main {
